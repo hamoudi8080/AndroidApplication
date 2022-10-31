@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="buttonColor">
-
+    <style name="navbarColor">
+        <item name="android:colorPrimary">
+            #174aa3
+        </item>
     </style>
 
 </resources>
