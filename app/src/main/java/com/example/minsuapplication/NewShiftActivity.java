@@ -13,7 +13,7 @@ import java.util.Locale;
 public class NewShiftActivity extends AppCompatActivity {
 
 
-
+//hello merge
     Button startTimeButton;
     Button endTimeButton;
     private int hour;
