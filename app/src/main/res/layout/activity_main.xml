@@ -12,6 +12,7 @@
         android:layout_height="?attr/actionBarSize"
         android:background="@color/myblue"
         android:textAlignment="center"
+        style = "@style/Widget.MaterialComponents.ActionBar.Primary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:subtitleTextColor="@color/white"
