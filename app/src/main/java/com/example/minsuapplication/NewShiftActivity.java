@@ -20,7 +20,7 @@ import java.util.Locale;
 public class NewShiftActivity extends AppCompatActivity {
 
 
-//hello merge
+
 
     Button startTimeButton;
     Button endTimeButton;
@@ -28,15 +28,11 @@ public class NewShiftActivity extends AppCompatActivity {
     private int minute;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_shift);
-//        Toolbar toolbar = findViewById(R.id.my_toolbar);
-//
-//        setSupportActionBar(toolbar);
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.flotbutton);
@@ -62,13 +58,13 @@ public class NewShiftActivity extends AppCompatActivity {
 
     public void startTime(View view) {
 
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener(){
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 hour = selectedHour;
                 minute = selectedMinute;
-                startTimeButton.setText(String.format(Locale.getDefault(),"%02d:%02d", hour, minute));
+                startTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
@@ -78,13 +74,13 @@ public class NewShiftActivity extends AppCompatActivity {
 
     public void endTime(View view) {
 
-        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener(){
+        TimePickerDialog.OnTimeSetListener onTimeSetListener = new TimePickerDialog.OnTimeSetListener() {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
                 hour = selectedHour;
                 minute = selectedMinute;
-                endTimeButton.setText(String.format(Locale.getDefault(),"%02d:%02d", hour, minute));
+                endTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
             }
         };
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
