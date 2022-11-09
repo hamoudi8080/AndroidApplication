@@ -34,9 +34,9 @@ public class NewShiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_shift);
-        Toolbar toolbar = findViewById(R.id.my_toolbar);
-
-        setSupportActionBar(toolbar);
+//        Toolbar toolbar = findViewById(R.id.my_toolbar);
+//
+//        setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         FloatingActionButton floatingActionButton = findViewById(R.id.flotbutton);
