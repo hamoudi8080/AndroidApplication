@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:text="Shift Start:"
         android:layout_marginTop="200dp"
-        android:layout_marginLeft="-250dp"
+        android:layout_marginLeft="-290dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,10 +50,10 @@
         android:layout_marginTop="50dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/breakUnpaidText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Break (Unpaid)"
         app:layout_constraintTop_toBottomOf="@id/totalHours"
         app:layout_constraintStart_toStartOf="@id/totalHours"
         android:layout_marginTop="50dp" />
@@ -62,11 +62,11 @@
         android:id="@+id/selectTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="start time"
+        android:text="time"
         android:onClick="startTime"
         android:layout_marginTop="185dp"
-        android:layout_marginLeft="100dp"
-        app:layout_constraintStart_toEndOf="@id/shiftStart"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintStart_toEndOf="@id/set_date"
         app:layout_constraintTop_toTopOf="parent"
        />
 
@@ -74,16 +74,44 @@
         android:id="@+id/selectTime2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="end Time"
+        android:text="Time"
         android:onClick="endTime"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="107dp"
+        android:layout_marginLeft="40dp"
         app:layout_constraintTop_toBottomOf="@id/selectTime"
 
-        app:layout_constraintStart_toEndOf="@id/shiftEnd"
+        app:layout_constraintStart_toEndOf="@id/set_date"
          />
 
-   <EditText
+    <Button
+        android:id="@+id/set_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:onClick="setDate"
+        android:layout_marginTop="185dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toEndOf="@id/shiftStart"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <Button
+        android:id="@+id/set_date2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="date"
+        android:onClick="setDate"
+        android:layout_marginTop="20dp"
+
+        android:layout_marginLeft="36dp"
+        app:layout_constraintTop_toBottomOf="@id/set_date"
+
+        app:layout_constraintStart_toEndOf="@id/shiftEnd"
+        />
+
+
+    <EditText
+        android:id="@+id/totalHoursEditText"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content"
        android:ems="6"
@@ -91,8 +119,21 @@
        android:layout_marginLeft="90dp"
        app:layout_constraintTop_toTopOf="@id/totalHours"
        app:layout_constraintStart_toEndOf="@id/totalHours"
+       android:backgroundTint="@color/black"
 
        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="6"
+        android:layout_marginTop="-10dp"
+        android:layout_marginLeft="90dp"
+        app:layout_constraintTop_toTopOf="@id/breakUnpaidText"
+        app:layout_constraintStart_toEndOf="@id/totalHours"
+        android:backgroundTint="@color/black"
+
+        />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
