@@ -17,6 +17,7 @@ There is a simple calculator on the website of minSU, but it is really complicat
 Our app will help all the international EU students to follow the rules about SU, and it will also be an educational app (how to read a payslip, how taxes work, etc...).
 
 Prioritized requirements for the app (user stories)
+
 1- As a user, I want the app to be secured with a pin code so my data is safe.
 
 2- As a user, I want to keep track of my working shifts, from start to end time and even the breaks, so that I can have an overview of my daily work hours.
