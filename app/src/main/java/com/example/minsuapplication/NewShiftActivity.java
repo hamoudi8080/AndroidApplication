@@ -45,7 +45,7 @@ public class NewShiftActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_shift);
-//       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+       getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("SU CALCULATION APP");
 
 
@@ -53,7 +53,13 @@ public class NewShiftActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(NewShiftActivity.this, date , Toast.LENGTH_SHORT).show();
+                if(date == null){
+                    Toast.makeText(NewShiftActivity.this, " nothing to be stored" , Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(NewShiftActivity.this, date , Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
 
