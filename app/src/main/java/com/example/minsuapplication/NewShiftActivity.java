@@ -1,8 +1,10 @@
 package com.example.minsuapplication;
-
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-
+import androidx.lifecycle.ViewModelProvider;
+import java.time.LocalDate;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
@@ -16,19 +18,28 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TimePicker;
 import android.widget.Toast;
-
+import java.io.*;
+import java.util.*;
+import com.example.minsuapplication.model.MyDateClass;
+import com.example.minsuapplication.model.Shift;
+import com.example.minsuapplication.viewmodel.ShiftViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 public class NewShiftActivity extends AppCompatActivity {
-
-
+    private ShiftViewModel shiftViewModel;
+    private MyDateClass myDateClass;
     private Button startTimeButton;
     private Button endTimeButton;
-    private int hour;
-    private int minute;
+
+    private int startMinute;
+    private int startHour;
+
+    private int endMinute;
+    private int endHour;
 
     private DatePickerDialog datePickerDialog;
 
@@ -37,9 +48,13 @@ public class NewShiftActivity extends AppCompatActivity {
 
     private int year;
     private int month;
+    private String smonth;
     private int day;
 
     private String date;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,16 +63,39 @@ public class NewShiftActivity extends AppCompatActivity {
        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("SU CALCULATION APP");
 
+        shiftViewModel = new ViewModelProvider(this).get(ShiftViewModel.class);
+
 
         FloatingActionButton floatingActionButton = findViewById(R.id.flotbutton);
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 if(date == null){
                     Toast.makeText(NewShiftActivity.this, " nothing to be stored" , Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 else {
-                    Toast.makeText(NewShiftActivity.this, date , Toast.LENGTH_SHORT).show();
+
+
+
+
+                        try {
+                            SimpleDateFormat formatter1 =new SimpleDateFormat("MM dd yyyy");
+                              Date mydate = formatter1.parse(date);
+                            shiftViewModel.insertShift(new Shift(mydate, startHour, startMinute));
+                            Toast.makeText(NewShiftActivity.this, date , Toast.LENGTH_SHORT).show();
+                        }
+                       catch (Exception e){
+
+                       }
+
+
+
+
+
+
+
                 }
 
             }
@@ -85,7 +123,7 @@ public class NewShiftActivity extends AppCompatActivity {
       int year = cal.get(Calendar.YEAR);
       int month = cal.get(Calendar.MONTH);
 
-      month = month +1;
+      month = month + 1;
       int day = cal.get(Calendar.DAY_OF_MONTH);
       return makeDateString(day, month,year);
   }
@@ -97,12 +135,12 @@ public class NewShiftActivity extends AppCompatActivity {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                hour = selectedHour;
-                minute = selectedMinute;
-                startTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                startHour = selectedHour;
+                startMinute = selectedMinute;
+                startTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", startHour, startMinute));
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, startHour, startMinute, true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
@@ -113,12 +151,12 @@ public class NewShiftActivity extends AppCompatActivity {
 
             @Override
             public void onTimeSet(TimePicker timePicker, int selectedHour, int selectedMinute) {
-                hour = selectedHour;
-                minute = selectedMinute;
-                endTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", hour, minute));
+                endHour  = selectedHour;
+                endMinute = selectedMinute;
+                endTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute));
             }
         };
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, hour, minute, true);
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, endHour, endMinute, true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
     }
@@ -128,7 +166,8 @@ public class NewShiftActivity extends AppCompatActivity {
             @Override
             public void onDateSet(DatePicker datePicker, int year, int month, int day) {
                 month = month + 1;
-                  date = makeDateString(day, month, year);
+                date = makeDateString(day, month, year);
+                datePicked(  day,   month,   year);
                 dateButton.setText(date);
                 dateButton2.setText(date);
             }
@@ -143,11 +182,26 @@ public class NewShiftActivity extends AppCompatActivity {
     }
 
 
+    private Date datePicked(int day, int month, int year) throws Exception {
 
-    private String makeDateString(int year, int month, int day){
+        try {
+            String date = day + "/" + month + "/" + year;
+            SimpleDateFormat formatter1 =new SimpleDateFormat("dd/MM/yyyy");
+            Date mydate = formatter1.parse(date);
+
+        } catch (Exception E){
+
+        }
+
+
+        return mydate;
+    }
+
+    private String makeDateString(int day, int month, int year){
         this.year= year;
         this.month = month;
         this.day = day;
+        this.smonth = getMonthFormat(month);
         return getMonthFormat(month) + " " + day + " " + year;
     }
 
@@ -191,8 +245,6 @@ public class NewShiftActivity extends AppCompatActivity {
 
 
 
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -200,6 +252,30 @@ public class NewShiftActivity extends AppCompatActivity {
     }
 
 
-
+//    public long differenceInTime(){
+//        Date date = new Date(year, month, day);
+//        System.out.println();
+//        int startmin =
+//
+//
+//        String time1 = "16:00:00";
+//        String time2 = "19:00:00";
+//
+//        SimpleDateFormat format = new SimpleDateFormat("HH:mm:ss");
+//        Date date1 = format.parse(time1);
+//        Date date2 = format.parse(time2);
+//        long diff = d2.getTime() - d1.getTime();
+//
+//        long diffSeconds = diff / 1000 % 60;
+//        long diffMinutes = diff / (60 * 1000) % 60;
+//        long diffHours = diff / (60 * 60 * 1000) % 24;
+//        long diffDays = diff / (24 * 60 * 60 * 1000);
+//
+//        System.out.print(diffDays + " days, ");
+//        System.out.print(diffHours + " hours, ");
+//        System.out.print(diffMinutes + " minutes, ");
+//        System.out.print(diffSeconds + " seconds.");
+//            return 0;
+//    }
 
 }
