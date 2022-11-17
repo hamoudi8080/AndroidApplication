@@ -4,29 +4,28 @@ import android.app.Application;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
+import androidx.lifecycle.LiveData;
 
 import com.example.minsuapplication.model.Shift;
 import com.example.minsuapplication.repository.ShiftRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class ShiftViewModel extends AndroidViewModel {
+
+
 
     private final ShiftRepository repository;
 
     public ShiftViewModel(@NonNull Application application) {
         super(application);
         repository = ShiftRepository.getInstance(application);
+
     }
-
-
-
-
-
-
-
 
 
 
@@ -61,5 +60,9 @@ public class ShiftViewModel extends AndroidViewModel {
 
     }
 
+    public LiveData<List<Shift>> getNote(){
+
+        return repository.getNote();
+    }
 
 }

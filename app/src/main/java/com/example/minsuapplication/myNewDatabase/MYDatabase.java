@@ -5,11 +5,13 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.migration.Migration;
+import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.minsuapplication.dao.ShiftDao;
 import com.example.minsuapplication.model.Shift;
 
-@Database(entities = {Shift.class}, version = 1)
+@Database(entities = {Shift.class}, version = 2)
 
 public abstract class MYDatabase extends RoomDatabase {
 
@@ -23,10 +25,21 @@ public abstract class MYDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             MYDatabase.class, "myOriginaldatabase")
 
-                    .build();
+                    .addMigrations(MIGRATION_1_2).build();
         }
         return INSTANCE;
     }
 
+    static final Migration MIGRATION_1_2 = new Migration(1, 2) {
+        @Override
+        public void migrate(SupportSQLiteDatabase database) {
+            try {
+                database.execSQL("ALTER TABLE Shift rename to shift_table "
+                         );
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+        }
+    };
 
 }

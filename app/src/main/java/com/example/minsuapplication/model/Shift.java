@@ -8,7 +8,7 @@ import androidx.room.TypeConverters;
 import java.util.Date;
 
 
-@Entity(tableName = "Shift")
+@Entity(tableName = "shift_table")
 public class Shift {
 
 

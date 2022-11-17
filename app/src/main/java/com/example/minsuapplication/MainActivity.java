@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button newShiftButton;
 
-    private Button viewNotes;
+     private Button viewNotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         viewNotes = findViewById(R.id.viewMyNotes);
 
         viewNotes.setOnClickListener(view -> {
-            Intent intent = new Intent(this, NoteActivity.class);
+            Intent intent = new Intent(this, NoteMainActivity.class);
             startActivity(intent);
         });
 
