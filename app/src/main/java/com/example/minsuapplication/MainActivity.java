@@ -2,6 +2,8 @@ package com.example.minsuapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -11,16 +13,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TimePicker;
 
+
+import com.example.minsuapplication.model.Note;
+
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button newShiftButton;
 
+    private Button viewNotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         getSupportActionBar().setTitle("SU CALCULATION APP");
 //hi
 
@@ -28,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
 
         newShiftButton.setOnClickListener(view -> {
             Intent intent = new Intent(this, NewShiftActivity.class);
+            startActivity(intent);
+        });
+
+        viewNotes = findViewById(R.id.viewMyNotes);
+
+        viewNotes.setOnClickListener(view -> {
+            Intent intent = new Intent(this, NoteActivity.class);
             startActivity(intent);
         });
 

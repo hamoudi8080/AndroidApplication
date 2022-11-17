@@ -1,2 +1,75 @@
-package com.example.minsuapplication;public class MyAdapter {
+package com.example.minsuapplication;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.minsuapplication.model.Note;
+import com.example.minsuapplication.model.Shift;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder>{
+
+    Context context;
+    ArrayList<Note> notes;
+    private OnClickListener onClickListener;
+
+    public MyAdapter(ArrayList<Note> notes) {
+        this.notes = notes;
+    }
+    public void setOnClickListener(OnClickListener listener) {
+        this.onClickListener = listener;
+    }
+
+    @NonNull
+
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = LayoutInflater.from(parent.getContext());
+        View view = inflater.inflate(R.layout.note_page, parent, false);
+        return new MyViewHolder(view);
+
+
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        holder.DescriptionOutput.setText(notes.get(position).getDescription());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        return notes.size();
+    }
+
+      class MyViewHolder extends RecyclerView.ViewHolder{
+
+        TextView DescriptionOutput;
+        TextView timeOutput;
+
+         MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            DescriptionOutput = itemView.findViewById(R.id.tv_name);
+
+//            timeOutput = itemView.findViewById(R.id.timeoutput);
+
+            itemView.setOnClickListener(v -> {
+                onClickListener.onClick(notes.get(getBindingAdapterPosition()));
+            });
+        }
+    }
+
+    public interface OnClickListener {
+        void onClick(Note note);
+    }
 }

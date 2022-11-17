@@ -1,15 +1,19 @@
 package com.example.minsuapplication.dao;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 
-public interface DateAndTimeDao {
+import com.example.minsuapplication.model.Shift;
 
-//    @Insert
-//    void insertDateAndTime(DateAndTime dateAndTime);
-//
-//    @Delete
-//    void delete(DateAndTime note);
+@Dao
+public interface ShiftDao {
+
+    @Insert
+    void insert(Shift shift);
+
+    @Delete
+    void delete(Shift shift);
 
 
 //
