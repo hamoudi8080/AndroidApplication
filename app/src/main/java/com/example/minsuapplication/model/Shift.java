@@ -1,41 +1,94 @@
 package com.example.minsuapplication.model;
 
-import java.text.Format;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
+import androidx.room.TypeConverter;
+import androidx.room.TypeConverters;
+
 import java.util.Date;
 
+
+@Entity(tableName = "Shift")
 public class Shift {
 
-    private String shiftStart;
-    private String shiftEnd;
-    private double totalPaid;
 
-    public Shift(String shiftStart, String shiftEnd, double totalPaid) {
-        this.shiftStart = shiftStart;
-        this.shiftEnd = shiftEnd;
-        this.totalPaid = totalPaid;
+
+    @PrimaryKey(autoGenerate = true)
+    private int id;
+    @TypeConverters({DateTypeConverter.class})
+    private Date date;
+    private String startTime;
+    private String endTime;
+    private double hourlyPay;
+    private double totalTime;
+    private String note;
+
+
+
+
+    //constraint set / motionlayout
+
+
+    public Shift(Date date, String startTime, String endTime, String note) {
+        this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+        this.note = note;
     }
 
-    public String getShiftStart() {
-        return shiftStart;
+    public int getId() {
+        return id;
     }
 
-    public void setShiftStart(String shiftStart) {
-        this.shiftStart = shiftStart;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getShiftEnd() {
-        return shiftEnd;
+    public Date getDate() {
+        return date;
     }
 
-    public void setShiftEnd(String shiftEnd) {
-        this.shiftEnd = shiftEnd;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public double getTotalPaid() {
-        return totalPaid;
+    public String getStartTime() {
+        return startTime;
     }
 
-    public void setTotalPaid(double totalPaid) {
-        this.totalPaid = totalPaid;
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
+    public double getHourlyPay() {
+        return hourlyPay;
+    }
+
+    public void setHourlyPay(double hourlyPay) {
+        this.hourlyPay = hourlyPay;
+    }
+
+    public double getTotalTime() {
+        return totalTime;
+    }
+
+    public void setTotalTime(double totalTime) {
+        this.totalTime = totalTime;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
