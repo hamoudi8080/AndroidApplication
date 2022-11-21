@@ -74,7 +74,7 @@ public class NewShiftActivity extends AppCompatActivity {
                     finish();
                 } else {
 
-                    shiftViewModel.insertShift(new Shift(dateObject,  startTime, endTime,addNote.getText().toString() ));
+                    shiftViewModel.insertShift(new Shift(dateObject,  startTime, endTime));
                     Toast.makeText(NewShiftActivity.this, date, Toast.LENGTH_SHORT).show();
 
                 }

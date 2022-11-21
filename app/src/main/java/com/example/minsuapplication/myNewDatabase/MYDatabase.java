@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.minsuapplication.dao.ShiftDao;
 import com.example.minsuapplication.model.Shift;
 
-@Database(entities = {Shift.class}, version = 2)
+@Database(entities = {Shift.class}, version = 3)
 
 public abstract class MYDatabase extends RoomDatabase {
 
@@ -25,7 +25,7 @@ public abstract class MYDatabase extends RoomDatabase {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             MYDatabase.class, "myOriginaldatabase")
 
-                    .addMigrations(MIGRATION_1_2).build();
+                    .build();
         }
         return INSTANCE;
     }
@@ -35,8 +35,10 @@ public abstract class MYDatabase extends RoomDatabase {
         public void migrate(SupportSQLiteDatabase database) {
             try {
                 database.execSQL("ALTER TABLE Shift rename to shift_table "
-                         );
-            }catch (Exception e){
+                );
+
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }

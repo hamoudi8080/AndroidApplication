@@ -21,7 +21,7 @@ public class Shift {
     private String endTime;
     private double hourlyPay;
     private double totalTime;
-    private String note;
+
 
 
 
@@ -29,11 +29,11 @@ public class Shift {
     //constraint set / motionlayout
 
 
-    public Shift(Date date, String startTime, String endTime, String note) {
+    public Shift(Date date, String startTime, String endTime ) {
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
-        this.note = note;
+
     }
 
     public int getId() {
@@ -84,11 +84,5 @@ public class Shift {
         this.totalTime = totalTime;
     }
 
-    public String getNote() {
-        return note;
-    }
 
-    public void setNote(String note) {
-        this.note = note;
-    }
 }
