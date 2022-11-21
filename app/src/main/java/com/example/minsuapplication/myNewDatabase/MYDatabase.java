@@ -5,14 +5,16 @@ import android.content.Context;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
+import androidx.room.TypeConverters;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.minsuapplication.dao.ShiftDao;
+import com.example.minsuapplication.model.DateTypeConverter;
 import com.example.minsuapplication.model.Shift;
 
 @Database(entities = {Shift.class}, version = 3)
-
+@TypeConverters({DateTypeConverter.class})
 public abstract class MYDatabase extends RoomDatabase {
 
     private static MYDatabase INSTANCE;
@@ -24,7 +26,7 @@ public abstract class MYDatabase extends RoomDatabase {
         if (INSTANCE == null) {
             INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             MYDatabase.class, "myOriginaldatabase")
-
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return INSTANCE;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -52,10 +53,11 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
         TextView notes;
         TextView timeOutput;
 
-        NotesAdapterVH(@NonNull View itemView) {
+        NotesAdapterVH(@NonNull View itemView ) {
             super(itemView);
 
             notes = itemView.findViewById(R.id.notes_row);
+
 
         }
     }

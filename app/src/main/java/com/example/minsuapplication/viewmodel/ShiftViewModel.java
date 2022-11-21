@@ -11,7 +11,6 @@ import com.example.minsuapplication.repository.ShiftRepository;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -20,6 +19,7 @@ public class ShiftViewModel extends AndroidViewModel {
 
 
     private final ShiftRepository repository;
+    private double totalTime;
 
     public ShiftViewModel(@NonNull Application application) {
         super(application);
@@ -51,7 +51,10 @@ public class ShiftViewModel extends AndroidViewModel {
         long diffHours = diff / (60 * 60 * 1000) % 24;
         long diffDays = diff / (24 * 60 * 60 * 1000);
 
-        double totalTime = Double.parseDouble(diffHours + "." + diffMinutes);
+
+     totalTime = Double.parseDouble(diffHours + "." + diffMinutes);
+
+
         shift.setTotalTime(totalTime);
 
         repository.insert(shift);
@@ -59,6 +62,13 @@ public class ShiftViewModel extends AndroidViewModel {
         System.out.print(diffHours + " hours, ");
 
     }
+
+
+    public String getTotalTime() {
+        return String.valueOf(totalTime);
+    }
+
+
 
     public LiveData<List<Shift>> getNote(){
 

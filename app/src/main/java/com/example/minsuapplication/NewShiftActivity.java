@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -38,6 +39,7 @@ public class NewShiftActivity extends AppCompatActivity {
     private int endHour;
 
     private DatePickerDialog datePickerDialog;
+    private TextView totalTimeTextView;
 
     private Button dateButton;
     private Button dateButton2;
@@ -60,22 +62,32 @@ public class NewShiftActivity extends AppCompatActivity {
         setContentView(R.layout.new_shift);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("SU CALCULATION APP");
-
         shiftViewModel = new ViewModelProvider(this).get(ShiftViewModel.class);
+        totalTimeTextView = findViewById(R.id.total_timeEditText);
+        totalTimeTextView.setText(shiftViewModel.getTotalTime().toString());
 
         addNote = findViewById(R.id.addNoteEditText);
         FloatingActionButton floatingActionButton = findViewById(R.id.flotbutton);
+
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
+
+
             @Override
             public void onClick(View view) {
 
-                if (date == null) {
-                    Toast.makeText(NewShiftActivity.this, " nothing to be stored", Toast.LENGTH_SHORT).show();
-                    finish();
-                } else {
+              if(startTime == null && endTime == null && dateObject == null){
+                    Toast.makeText(NewShiftActivity.this, "PLEASE SELECT A TIME AND DATE", Toast.LENGTH_SHORT).show();
+                    if(dateObject == null){
+                        Toast.makeText(NewShiftActivity.this, "PLEASE SELECT A DATE", Toast.LENGTH_SHORT).show();
+                    }  if(startTime == null && endTime == null)
+                        Toast.makeText(NewShiftActivity.this, "PLEASE SELECT A TIME", Toast.LENGTH_SHORT).show();
+
+                }
+                else   {
 
                     shiftViewModel.insertShift(new Shift(dateObject,  startTime, endTime));
-                    Toast.makeText(NewShiftActivity.this, date, Toast.LENGTH_SHORT).show();
+                    totalTimeTextView.setText(shiftViewModel.getTotalTime().toString());
+                    Toast.makeText(NewShiftActivity.this, "YOUR SHIFT IS STORED ", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -137,11 +149,13 @@ public class NewShiftActivity extends AppCompatActivity {
                 endMinute = selectedMinute;
                 endTime = String.format(Locale.getDefault(), "%02d:%02d", selectedHour, selectedMinute);
                 endTimeButton.setText(String.format(Locale.getDefault(), "%02d:%02d", endHour, endMinute));
+
             }
         };
         TimePickerDialog timePickerDialog = new TimePickerDialog(this, onTimeSetListener, endHour, endMinute, true);
         timePickerDialog.setTitle("Select Time");
         timePickerDialog.show();
+
     }
 
     private void intitDatePicker() {

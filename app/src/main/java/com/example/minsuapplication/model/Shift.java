@@ -1,6 +1,7 @@
 package com.example.minsuapplication.model;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import androidx.room.TypeConverter;
 import androidx.room.TypeConverters;
@@ -31,6 +32,13 @@ public class Shift {
 
     public Shift(Date date, String startTime, String endTime ) {
         this.date = date;
+        this.startTime = startTime;
+        this.endTime = endTime;
+
+    }
+    @Ignore
+    public Shift(String startTime, String endTime ) {
+
         this.startTime = startTime;
         this.endTime = endTime;
 

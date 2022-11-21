@@ -2,6 +2,7 @@ package com.example.minsuapplication.model;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Notes_table")
@@ -14,7 +15,7 @@ public class Note {
     @ColumnInfo(name = "description")
     private String description;
 
-
+    @Ignore
     public Note(String description) {
         this.description = description;
     }

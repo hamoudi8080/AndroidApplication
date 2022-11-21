@@ -9,8 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -51,8 +53,10 @@ public class NoteMainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addNotes(NoteMainActivity.this);
+
             }
         });
+
     }
 
     public void addNotes(Context context){
@@ -68,6 +72,9 @@ public class NoteMainActivity extends AppCompatActivity {
                 notes.setDescription(edNotes.getText().toString());
 
                 noteViewModel.insertNote(notes);
+
+                Intent intent = new Intent(NoteMainActivity.this, NoteMainActivity.class);
+                startActivity(intent);
 
             }
         });

@@ -14,4 +14,7 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="Button.yellow" parent="ThemeOverlay.AppCompat">
+        <item name="colorAccent">#FFDE03</item>
+    </style>
 </resources>

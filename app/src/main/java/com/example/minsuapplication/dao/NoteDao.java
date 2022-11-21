@@ -20,4 +20,7 @@ public interface NoteDao {
 
     @Query("Select * FROM Notes_table")
     LiveData<List<Note>> getNote();
+
+//    @Query("Select * FROM Notes_table")
+//    String getTotalTime();
 }

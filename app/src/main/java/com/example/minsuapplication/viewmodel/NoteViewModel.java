@@ -27,10 +27,12 @@ public class NoteViewModel extends AndroidViewModel {
 
     public void insertNote(Note note) {
         repository.insert(note);
+
     }
 
     public LiveData<List<Note>> getNote(){
 
         return repository.getAllNote();
     }
+
 }
