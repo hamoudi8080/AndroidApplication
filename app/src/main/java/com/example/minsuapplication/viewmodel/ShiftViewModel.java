@@ -20,6 +20,7 @@ public class ShiftViewModel extends AndroidViewModel {
 
     private final ShiftRepository repository;
     private double totalTime;
+    private long workedMin;
 
     public ShiftViewModel(@NonNull Application application) {
         super(application);
@@ -27,7 +28,14 @@ public class ShiftViewModel extends AndroidViewModel {
 
     }
 
+    public void setWorkedMin(String m){
 
+
+        String string = m;
+        String[] parts = string.split("m");
+        String part  = parts[0];
+        workedMin = Long.valueOf(Integer.parseInt(part));
+    }
 
     public void insertShift(Shift shift) {
 
@@ -46,14 +54,21 @@ public class ShiftViewModel extends AndroidViewModel {
             e.printStackTrace();
         }
 
+
+
         long diff = date2.getTime() - date1.getTime();
-        long diffMinutes = diff / (60 * 1000) % 60;
+
+        long diffMinutes =  diff   / (60 * 1000) % 60;
+
+
         long diffHours = diff / (60 * 60 * 1000) % 24;
+
         long diffDays = diff / (24 * 60 * 60 * 1000);
+        //long worksubtracted = diffMinutes - workedMin;
 
+         totalTime = Double.parseDouble(diffHours + "." + (diffMinutes));
 
-     totalTime = Double.parseDouble(diffHours + "." + diffMinutes);
-
+       //  totalTime =- workedMin;
 
         shift.setTotalTime(totalTime);
 
@@ -73,6 +88,11 @@ public class ShiftViewModel extends AndroidViewModel {
     public LiveData<List<Shift>> getNote(){
 
         return repository.getNote();
+    }
+
+    public LiveData<List<Shift>> getDataForTABLE(){
+
+        return repository.getDataForTABLE();
     }
 
 }

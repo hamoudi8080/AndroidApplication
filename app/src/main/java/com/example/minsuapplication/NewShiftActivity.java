@@ -2,18 +2,25 @@ package com.example.minsuapplication;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
@@ -24,6 +31,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class NewShiftActivity extends AppCompatActivity {
@@ -50,11 +58,14 @@ public class NewShiftActivity extends AppCompatActivity {
     private int day;
 
     private String date;
-
+    private String loc;
     private String startTime;
     private String endTime;
     private Date dateObject;
-    EditText addNote;
+
+
+    Spinner spinner;
+    ArrayAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +77,7 @@ public class NewShiftActivity extends AppCompatActivity {
         totalTimeTextView = findViewById(R.id.total_timeEditText);
         totalTimeTextView.setText(shiftViewModel.getTotalTime().toString());
 
-        addNote = findViewById(R.id.addNoteEditText);
+
         FloatingActionButton floatingActionButton = findViewById(R.id.flotbutton);
 
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +96,7 @@ public class NewShiftActivity extends AppCompatActivity {
                 }
                 else   {
 
-                    shiftViewModel.insertShift(new Shift(dateObject,  startTime, endTime));
+                    shiftViewModel.insertShift(new Shift(dateObject,  startTime, endTime, loc));
                     totalTimeTextView.setText(shiftViewModel.getTotalTime().toString());
                     Toast.makeText(NewShiftActivity.this, "YOUR SHIFT IS STORED ", Toast.LENGTH_SHORT).show();
 
@@ -94,6 +105,18 @@ public class NewShiftActivity extends AppCompatActivity {
             }
         });
 
+//        recyclerView = findViewById(R.id.table_recycleView);
+//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+//        shiftViewModel.getDataForTABLE().observe(this, new Observer<List<Shift>>() {
+//            @Override
+//            public void onChanged(List<Shift> myShifts) {
+//                if (myShifts.size() > 0){
+//                    tableAdapter.setData(myShifts);
+//                    recyclerView.setAdapter(tableAdapter);
+//                }
+//            }
+//        });
 
         intitDatePicker();
         dateButton = findViewById(R.id.set_date);
@@ -105,6 +128,26 @@ public class NewShiftActivity extends AppCompatActivity {
 
         startTimeButton = findViewById(R.id.selectTime);
         endTimeButton = findViewById(R.id.selectTime2);
+
+
+        spinner = findViewById(R.id.take_break);
+
+
+        adapter = ArrayAdapter.createFromResource(this, R.array.breakTime, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
+                  loc = adapterView.getItemAtPosition(position).toString();
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+                finish();
+            }
+        });
 
 
     }
@@ -251,5 +294,8 @@ public class NewShiftActivity extends AppCompatActivity {
     }
 
 
-
+    public void seeDate(View view) {
+        Intent intent = new Intent(this, DataDisplayActivity.class);
+        startActivity(intent);
+    }
 }

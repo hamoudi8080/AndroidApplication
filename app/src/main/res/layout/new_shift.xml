@@ -29,6 +29,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+       android:textSize="15dp"
         />
 
     <TextView
@@ -39,6 +40,7 @@
         app:layout_constraintTop_toBottomOf="@id/shiftStart"
         app:layout_constraintStart_toStartOf="@id/shiftStart"
         android:layout_marginTop="50dp"
+        android:textSize="15dp"
         />
 
     <TextView
@@ -46,18 +48,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Total Hours"
+        android:textSize="15dp"
         app:layout_constraintTop_toBottomOf="@id/shiftEnd"
         app:layout_constraintStart_toStartOf="@id/shiftEnd"
         android:layout_marginTop="50dp" />
 
     <TextView
-        android:id="@+id/breakUnpaidText"
+        android:id="@+id/location_Text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Break (Unpaid)"
+        android:text="LOCATION"
         app:layout_constraintTop_toBottomOf="@id/totalHours"
         app:layout_constraintStart_toStartOf="@id/totalHours"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="50dp"
+        android:textSize="15dp"/>
 
     <Button
         android:id="@+id/selectTime"
@@ -111,6 +115,7 @@
         />
 
 
+
     <TextView
         android:id="@+id/total_timeEditText"
        android:layout_width="wrap_content"
@@ -127,46 +132,62 @@
     <Spinner
 
 
-        android:id="@+id/breakEditText"
-        android:layout_width="wrap_content"
+        android:id="@+id/take_break"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:ems="6"
-        android:layout_marginTop="-10dp"
-        android:layout_marginLeft="90dp"
-        app:layout_constraintTop_toTopOf="@id/breakUnpaidText"
+        android:layout_marginTop="-3dp"
+        android:layout_marginLeft="70dp"
+        app:layout_constraintTop_toTopOf="@id/location_Text"
         app:layout_constraintStart_toEndOf="@id/totalHours"
         android:backgroundTint="@color/black"
 
         />
 
-    <EditText
-        android:id="@+id/addNoteEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="18"
-        android:layout_marginTop="15dp"
-
-       app:layout_constraintTop_toBottomOf="@+id/breakEditText"
+    <View
+        android:id="@+id/myLine"
+        android:alpha="0.7"
+        android:layout_marginTop="50dp"
+        app:layout_constraintTop_toBottomOf="@id/location_Text"
+        android:layout_width="300dp"
+        android:layout_height="2dp"
+        android:background="@color/myblue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:backgroundTint="@color/black"
 
         />
 
     <TextView
-        android:id="@+id/addNote"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WRITE A NOTE"
+        android:text="CREATE A SHIFT"
         android:onClick="addNote"
-        android:layout_marginTop="20dp"
-        android:layout_margin="10dp"
+        android:layout_marginTop="60dp"
+        android:padding="6dp"
         android:textSize="30dp"
         android:textColor="@color/white"
          android:gravity="center"
-        app:layout_constraintTop_toBottomOf="@id/addNoteEditText"
+          app:layout_constraintTop_toTopOf="parent"
         android:backgroundTint="@color/myblue"
         android:background="@color/myblue"
+        />
+
+    <Button
+        android:id="@+id/ViewDta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OVERVIEW ON SHIFTS"
+        android:onClick="seeDate"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+
+        app:layout_constraintTop_toBottomOf="@id/myLine"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+
+
         />
 
 

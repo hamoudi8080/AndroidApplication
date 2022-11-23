@@ -21,6 +21,10 @@ public interface NoteDao {
     @Query("Select * FROM Notes_table")
     LiveData<List<Note>> getNote();
 
+    @Query("DELETE FROM Notes_table WHERE id = :itemId")
+    void deleteByItemId(int itemId);
+
+
 //    @Query("Select * FROM Notes_table")
 //    String getTotalTime();
 }

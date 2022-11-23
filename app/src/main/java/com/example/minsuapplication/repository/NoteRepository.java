@@ -47,4 +47,10 @@ public class NoteRepository {
 
         return allNotes;
     }
+
+    public void deleteItem(int id){
+        noteDao.deleteByItemId(id);
+    }
+
+
 }

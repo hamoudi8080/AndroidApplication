@@ -21,12 +21,14 @@ public class ShiftRepository {
     private final ExecutorService executorService;
 
     private final LiveData<List<Shift>> allNotes;
+    private final LiveData<List<Shift>> getDataForTable;
  
 
     private ShiftRepository(Application application) {
         MYDatabase database = MYDatabase.getInstance(application);
         shiftDao = database.shiftDao();
         allNotes = shiftDao.getNote();
+        getDataForTable = shiftDao.getDataForTABLE();
         executorService = Executors.newFixedThreadPool(5);
     }
 
@@ -46,4 +48,12 @@ public class ShiftRepository {
 
        return allNotes;
     }
+
+
+
+    public LiveData<List<Shift>> getDataForTABLE(){
+
+        return getDataForTable;
+    }
+
 }

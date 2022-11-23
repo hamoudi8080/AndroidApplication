@@ -1,3 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MinSuApplication</string>
+
+    <string-array name="breakTime" tools:ignore="ExtraTranslation">
+        <item>Arhus</item>
+        <item>Vejle</item>
+        <item>Kolding</item>
+        <item>Silkeborg</item>
+        <item>Billund</item>
+    </string-array>
 </resources>

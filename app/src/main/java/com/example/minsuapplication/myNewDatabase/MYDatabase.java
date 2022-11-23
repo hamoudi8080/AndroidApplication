@@ -13,7 +13,7 @@ import com.example.minsuapplication.dao.ShiftDao;
 import com.example.minsuapplication.model.DateTypeConverter;
 import com.example.minsuapplication.model.Shift;
 
-@Database(entities = {Shift.class}, version = 3)
+@Database(entities = {Shift.class}, version = 4)
 @TypeConverters({DateTypeConverter.class})
 public abstract class MYDatabase extends RoomDatabase {
 

@@ -22,7 +22,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     private Button newShiftButton;
-
+    private Button view_shiftsBtn;
      private Button viewNotes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
+        view_shiftsBtn = findViewById(R.id.view_shifts);
+
+        view_shiftsBtn.setOnClickListener(view -> {
+            Intent intent = new Intent(this, DataDisplayActivity.class);
+            startActivity(intent);
+        });
 
     }
 

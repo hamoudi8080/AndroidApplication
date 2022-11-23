@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:orientation="vertical">-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TableRow>
+                <TextView
+                    android:text="LOCATION"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="0.5"
+
+                    />
+                <TextView
+                    android:text="DATE"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="0.5"
+
+                    />
+<!--                <TextView-->
+<!--                    android:text="START TIME"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:paddingTop="5dp"-->
+<!--                    android:paddingBottom="5dp"-->
+<!--                    android:layout_weight="0.5"-->
+
+<!--                    />-->
+
+<!--                <TextView-->
+<!--                    android:text="END TIME"-->
+<!--                    android:textStyle="bold"-->
+<!--                    android:gravity="center"-->
+<!--                    android:paddingTop="5dp"-->
+<!--                    android:paddingBottom="5dp"-->
+<!--                    android:layout_weight="0.5"-->
+
+<!--                    />-->
+
+                <TextView
+                    android:text="IN TOTAL"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="0.5"
+
+                    />
+            </TableRow>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/table_recycleView"
+                android:layout_width="match_parent"
+                android:layout_height="686dp" />
+
+
+        </TableLayout>
+
+
+
+
+
+
+<!--    </LinearLayout>-->
+</RelativeLayout>

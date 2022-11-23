@@ -20,20 +20,19 @@ public class Shift {
     private Date date;
     private String startTime;
     private String endTime;
-    private double hourlyPay;
+//    private double hourlyPay;
     private double totalTime;
+    private String myLocation;
 
 
+//constraint set / motionlayout
 
 
-
-    //constraint set / motionlayout
-
-
-    public Shift(Date date, String startTime, String endTime ) {
+    public Shift(Date date, String startTime, String endTime, String myLocation ) {
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
+        this.myLocation = myLocation;
 
     }
     @Ignore
@@ -42,6 +41,15 @@ public class Shift {
         this.startTime = startTime;
         this.endTime = endTime;
 
+    }
+
+
+    public String getMyLocation() {
+        return myLocation;
+    }
+
+    public void setMyLocation(String myLocation) {
+        this.myLocation = myLocation;
     }
 
     public int getId() {
@@ -76,13 +84,13 @@ public class Shift {
         this.endTime = endTime;
     }
 
-    public double getHourlyPay() {
-        return hourlyPay;
-    }
-
-    public void setHourlyPay(double hourlyPay) {
-        this.hourlyPay = hourlyPay;
-    }
+//    public double getHourlyPay() {
+//        return hourlyPay;
+//    }
+//
+//    public void setHourlyPay(double hourlyPay) {
+//        this.hourlyPay = hourlyPay;
+//    }
 
     public double getTotalTime() {
         return totalTime;

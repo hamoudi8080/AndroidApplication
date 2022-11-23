@@ -22,6 +22,10 @@ public interface ShiftDao {
 
     @Query("Select * FROM shift_table")
     LiveData<List<Shift>> getNote();
+
+//    @Query("Select id, myLocation,  date, totalTime FROM shift_table")
+@Query("Select * FROM shift_table")
+    LiveData<List<Shift>> getDataForTABLE();
 //
 //    @Query("DELETE FROM note_table")
 //    void deleteAllNotes();

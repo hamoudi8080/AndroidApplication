@@ -25,6 +25,7 @@ public class NoteViewModel extends AndroidViewModel {
     }
 
 
+
     public void insertNote(Note note) {
         repository.insert(note);
 
@@ -33,6 +34,10 @@ public class NoteViewModel extends AndroidViewModel {
     public LiveData<List<Note>> getNote(){
 
         return repository.getAllNote();
+    }
+
+    public void deleteItem(int id){
+        repository.deleteItem(id);
     }
 
 }

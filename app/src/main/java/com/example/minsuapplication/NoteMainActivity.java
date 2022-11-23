@@ -15,9 +15,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.minsuapplication.model.Note;
 import com.example.minsuapplication.viewmodel.NoteViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -26,8 +30,8 @@ public class NoteMainActivity extends AppCompatActivity {
     NoteViewModel noteViewModel;
     NotesAdapter notesAdapter;
     RecyclerView recyclerView;
-
     Button btnNewNote;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +43,7 @@ public class NoteMainActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.recycleView);
         recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
 
         noteViewModel.getNote().observe(this, new Observer<List<Note>>() {
             @Override
@@ -57,8 +62,16 @@ public class NoteMainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
     }
 
+//    public void deleteItem(){
+//       int id = notesAdapter.getposintion();
+//        int x = 1;
+//        noteViewModel.deleteItem(x);
+//    }
     public void addNotes(Context context){
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
        final View view1 = getLayoutInflater().inflate(R.layout.row_add_notes,null);
@@ -73,8 +86,22 @@ public class NoteMainActivity extends AppCompatActivity {
 
                 noteViewModel.insertNote(notes);
 
-                Intent intent = new Intent(NoteMainActivity.this, NoteMainActivity.class);
+                Toast.makeText(NoteMainActivity.this, "YOU HAVE ADDED A NOTE", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(NoteMainActivity.this, NoteMainActivity.class);
                 startActivity(intent);
+                finish();
+//                View parentLayout = findViewById(android.R.id.content);
+//                Snackbar.make(parentLayout, "YOU HAVE ADDED A NOTE", Snackbar.LENGTH_LONG)
+//                        .setAction("SAVED", new View.OnClickListener() {
+//                            @Override
+//                            public void onClick(View view) {
+//
+//
+//                            }
+//                        })
+//                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
+//                        .show();
+
 
             }
         });
