@@ -17,6 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.minsuapplication.dao.NoteDao;
+import com.example.minsuapplication.dao.ShiftDao;
 import com.example.minsuapplication.model.Note;
 import com.example.minsuapplication.repository.NoteRepository;
 import com.example.minsuapplication.viewmodel.NoteViewModel;
@@ -29,12 +30,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
 
     private Context context;
     TextView textView ;
-    public NotesAdapter(){
-
+    OnListItemClickListener listener;
+    public NotesAdapter(OnListItemClickListener listener){
+        this.listener = listener;
     }
-    public void setData(List<Note> noteList){
+    public void setData(List<Note> noteList ){
         this.noteList = noteList;
         notifyDataSetChanged();
+
     }
 
 
@@ -52,18 +55,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
         String mynotes = notes.getDescription();
         holder.notes.setText(mynotes);
 
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-//                  posintionOfOnlickRecycleView =  x;
-                //You can call detail fragment here
-//                NoteViewModel noteViewModel = new NoteViewModel();
-
-
-
-            }
-        });
+//        holder.itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//
+//
+//            }
+//        });
 
     }
 
@@ -81,13 +80,19 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
             super(itemView);
 
             notes = itemView.findViewById(R.id.notes_row);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.onClick(getAdapterPosition());
+                }
+            });
 
-//            textView.findViewById(R.id.notes_row).setOnClickListener(view -> {
-//                adapter.noteList.remove(getAdapterPosition());
-//                adapter.notifyItemRemoved(getAdapterPosition());
-//            });
+
 
         }
+    }
+    public interface OnListItemClickListener{
+        void onClick(int position);
     }
 
 }

@@ -2,6 +2,7 @@ package com.example.minsuapplication.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -21,9 +22,13 @@ public interface NoteDao {
     @Query("Select * FROM Notes_table")
     LiveData<List<Note>> getNote();
 
-    @Query("DELETE FROM Notes_table WHERE id = :itemId")
-    void deleteByItemId(int itemId);
 
+//    @Query("DELETE description FROM Notes_table WHERE id = :itemId")
+//    @Delete
+//    void deleteByItemId(int itemId);
+
+    @Query("DELETE  FROM Notes_table WHERE id = :id")
+    void deleteByItemId(int id);
 
 //    @Query("Select * FROM Notes_table")
 //    String getTotalTime();
