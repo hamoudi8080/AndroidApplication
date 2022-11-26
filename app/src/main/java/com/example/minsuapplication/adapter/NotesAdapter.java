@@ -1,27 +1,20 @@
-package com.example.minsuapplication;
+package com.example.minsuapplication.adapter;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.minsuapplication.dao.NoteDao;
-import com.example.minsuapplication.dao.ShiftDao;
+import com.example.minsuapplication.R;
 import com.example.minsuapplication.model.Note;
-import com.example.minsuapplication.repository.NoteRepository;
-import com.example.minsuapplication.viewmodel.NoteViewModel;
 
+import java.text.DateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapterVH> {
@@ -34,6 +27,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
     public NotesAdapter(OnListItemClickListener listener){
         this.listener = listener;
     }
+
     public void setData(List<Note> noteList ){
         this.noteList = noteList;
         notifyDataSetChanged();
@@ -55,14 +49,7 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
         String mynotes = notes.getDescription();
         holder.notes.setText(mynotes);
 
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//
-//
-//            }
-//        });
+
 
     }
 
@@ -74,15 +61,17 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
     class NotesAdapterVH extends RecyclerView.ViewHolder{
 
         TextView notes;
-        TextView timeOutput;
-        private NotesAdapter adapter;
+
+    
         NotesAdapterVH(@NonNull View itemView ) {
             super(itemView);
 
             notes = itemView.findViewById(R.id.notes_row);
+
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+
                     listener.onClick(getAdapterPosition());
                 }
             });

@@ -30,12 +30,13 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
 
 
     private List<Shift> shiftsDisplayData;
+    OnListItemClickListener listener;
 
-    public TableAdapter( List<Shift> shiftsDisplayData) {
+
+    public TableAdapter( List<Shift> shiftsDisplayData,  OnListItemClickListener listener) {
         this.shiftsDisplayData = shiftsDisplayData;
-
+        this.listener = listener;
     }
-
 
 
     @NonNull
@@ -117,6 +118,19 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
             date_ = itemView.findViewById(R.id.date_data);
             tot_ = itemView.findViewById(R.id.total_);
 
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    listener.onClick(getAdapterPosition());
+                }
+            });
+
         }
+    }
+
+    public interface OnListItemClickListener{
+        void onClick(int position);
     }
 }

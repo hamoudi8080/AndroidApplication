@@ -51,4 +51,10 @@ public class ShiftRepository {
         return getDataForTable;
     }
 
+
+    public void deleteItem(int id){
+
+        shiftDao.deleteByItemId(id);
+    }
+
 }

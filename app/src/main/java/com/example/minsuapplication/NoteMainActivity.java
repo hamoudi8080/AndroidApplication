@@ -13,16 +13,13 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.minsuapplication.adapter.NotesAdapter;
 import com.example.minsuapplication.model.Note;
 import com.example.minsuapplication.viewmodel.NoteViewModel;
-import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -33,12 +30,14 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
     RecyclerView recyclerView;
     Button btnNewNote;
     Button deleteITM;
+    private List<Note> noteList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_note_main_page);
         btnNewNote = findViewById(R.id.btnNewNote);
-        deleteITM = findViewById(R.id.deleteItemBtn);
+//        deleteITM = findViewById(R.id.deleteItemBtn);
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
         notesAdapter = new NotesAdapter(this);
         recyclerView = findViewById(R.id.recycleView);
@@ -49,7 +48,9 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
         noteViewModel.getNote().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(List<Note> notes) {
+
                 if (notes.size() > 0) {
+                    noteList = notes;
                     notesAdapter.setData(notes);
                     recyclerView.setAdapter(notesAdapter);
                 }
@@ -62,8 +63,6 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
 
             }
         });
-
-
 
 
     }
@@ -107,7 +106,7 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
         alertDialog.show();
     }
 
-//    public void click() {
+    //    public void click() {
 //        deleteITM.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -137,8 +136,14 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
 
             public void onClick(DialogInterface dialog, int which) {
                 // continue with delete
-                noteViewModel.deleteItem(position);
-                Toast.makeText(NoteMainActivity.this , "Position" + position, Toast.LENGTH_SHORT).show();
+//                noteList.
+
+
+                int id = noteList.get(position).getId();
+
+                noteViewModel.deleteItem(id);
+
+                Toast.makeText(NoteMainActivity.this, "The it has been deleted", Toast.LENGTH_SHORT).show();
 
             }
         });
