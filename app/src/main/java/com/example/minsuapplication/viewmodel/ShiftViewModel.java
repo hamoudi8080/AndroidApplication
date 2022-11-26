@@ -85,14 +85,14 @@ public class ShiftViewModel extends AndroidViewModel {
 
 
 
-    public LiveData<List<Shift>> getNote(){
-
-        return repository.getNote();
-    }
 
     public LiveData<List<Shift>> getDataForTABLE(){
 
         return repository.getDataForTABLE();
+    }
+
+    public void deleteItem(int id){
+        repository.deleteItem(id);
     }
 
 }

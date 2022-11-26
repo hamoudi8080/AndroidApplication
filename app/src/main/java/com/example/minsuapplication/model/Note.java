@@ -16,6 +16,9 @@ public class Note {
     private String description;
 
     @Ignore
+    private long createdTime;
+
+    @Ignore
     public Note(String description) {
         this.description = description;
     }
@@ -37,5 +40,14 @@ public class Note {
 
     public String getDescription() {
         return description;
+    }
+
+    @Ignore
+    public long getCreatedTime() {
+        return createdTime;
+    }
+    @Ignore
+    public void setCreatedTime(long createdTime) {
+        this.createdTime = createdTime;
     }
 }

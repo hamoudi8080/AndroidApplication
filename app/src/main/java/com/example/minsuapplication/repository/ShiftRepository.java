@@ -20,14 +20,14 @@ public class ShiftRepository {
     private final ShiftDao shiftDao;
     private final ExecutorService executorService;
 
-    private final LiveData<List<Shift>> allNotes;
+
     private final LiveData<List<Shift>> getDataForTable;
  
 
     private ShiftRepository(Application application) {
         MYDatabase database = MYDatabase.getInstance(application);
         shiftDao = database.shiftDao();
-        allNotes = shiftDao.getNote();
+
         getDataForTable = shiftDao.getDataForTABLE();
         executorService = Executors.newFixedThreadPool(5);
     }
@@ -44,16 +44,17 @@ public class ShiftRepository {
         executorService.execute(() -> shiftDao.insert(shift));
     }
 
-    public LiveData<List<Shift>> getNote(){
-
-       return allNotes;
-    }
-
 
 
     public LiveData<List<Shift>> getDataForTABLE(){
 
         return getDataForTable;
+    }
+
+
+    public void deleteItem(int id){
+
+        shiftDao.deleteByItemId(id);
     }
 
 }

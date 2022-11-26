@@ -20,19 +20,14 @@ public interface ShiftDao {
     @Delete
     void delete(Shift shift);
 
+//    @Query("Select * FROM shift_table")
+//    LiveData<List<Shift>> getNote();
+
     @Query("Select * FROM shift_table")
-    LiveData<List<Shift>> getNote();
-
-//    @Query("Select id, myLocation,  date, totalTime FROM shift_table")
-@Query("Select * FROM shift_table")
     LiveData<List<Shift>> getDataForTABLE();
-//
-//    @Query("DELETE FROM note_table")
-//    void deleteAllNotes();
-//
-//    @Query("SELECT * FROM note_table ORDER BY priority DESC")
-//    LiveData<List<Note>> getAllNotes();
 
+    @Query("DELETE  FROM shift_table WHERE id = :id")
+    void deleteByItemId(int id);
 
 
 }
