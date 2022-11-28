@@ -1,9 +1,11 @@
 # AndroidApplication
 
 AND1 project 4th semester Brief description of the application and the motivation behind it:
-The application is created and designed to make it easy for employees who want to keep track of their shifts and make some notes if they want to remember their notes later.
+The application is created and designed to make it easy for employees who want to keep track of their shifts,
+and make some notes if they want to remember their notes later.
 
-Nowadays, some employees are suffering from keeping track of their shifts which include the day and the time of work and the location where they worked at. Since their work is dependent in which location they have shifts.
+Nowadays, some employees are suffering from keeping track of their shifts which include the day and the time of work and the location where they worked at.
+Since their work is dependent in which location they have shifts.
 
 The app is aiming to help these employees of a company which is called Raitan. Raitan has multiple locations in the Jutland, where empolyees can work in these locations whenever is necessary. And the employees what to keep track on their daily shifts and if they want to write down something, they can simply just add a note.
 
