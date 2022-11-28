@@ -10,7 +10,7 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
 
     private Button newShiftButton;
-    private Button view_shiftsBtn;
+//    private Button view_shiftsBtn;
     private Button viewNotes;
 
     private Button fragmentbtn;
@@ -43,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-        view_shiftsBtn = findViewById(R.id.view_shifts);
+//        view_shiftsBtn = findViewById(R.id.view_shifts);
 
-        view_shiftsBtn.setOnClickListener(view -> {
-            Intent intent = new Intent(this, DataDisplayActivity.class);
-            startActivity(intent);
-        });
+//        view_shiftsBtn.setOnClickListener(view -> {
+//            Intent intent = new Intent(this, DataDisplayActivity.class);
+//            startActivity(intent);
+//        });
 
     }
 

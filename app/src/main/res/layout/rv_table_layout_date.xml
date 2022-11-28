@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:padding="10dp">
+    <TableRow>
+        <TextView
+            android:id="@+id/location_data"
+            android:layout_width="26dp"
+            android:text="ARUHS"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_weight="0.5"
+            android:background="@color/yellow"
+            android:textColor="@color/black"
+
+
+            />
+
+        <TextView
+            android:id="@+id/date_data"
+            android:text="22-03-2022"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_weight="0.5"
+            android:textColor="@color/black"
+            android:background="@color/yellow"
+            android:layout_width="50dp"
+            />
+
+        <TextView
+            android:id="@+id/total_"
+            android:text="2.0"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_weight="0.5"
+            android:textColor="@color/black"
+            android:background="@color/yellow"
+            android:layout_width="30dp"
+            />
+    </TableRow>
+</TableLayout>

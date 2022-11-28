@@ -5,20 +5,50 @@
     android:layout_height="match_parent"
     tools:context=".fragments.OnlyDateFragment">
 
-    <TextView
-        android:id="@+id/textView2"
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/yellow"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <TextView
+                android:layout_marginStart="6dp"
+                android:text="LOCATION"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_weight="0.5"
 
-        android:gravity="center"
-        android:text="DateFragment"
-        android:textSize="60sp" />
+                android:layout_width="26dp"
+                />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="myButton"
-        android:id="@+id/btnn"
-        />
+            <TextView
+                android:text="DATE"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_weight="0.5"
+
+                />
+
+
+
+
+            <TextView
+                android:text="IN TOTAL"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:layout_weight="0.5"
+
+                />
+        </TableRow>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/date_table_recycleView"
+            android:layout_width="match_parent"
+            android:layout_height="686dp" />
+
+    </TableLayout>
 </FrameLayout>

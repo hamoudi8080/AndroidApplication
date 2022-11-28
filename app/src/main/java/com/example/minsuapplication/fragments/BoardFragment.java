@@ -18,7 +18,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.minsuapplication.DataDisplayActivity;
 import com.example.minsuapplication.R;
 import com.example.minsuapplication.adapter.NotesAdapter;
 import com.example.minsuapplication.adapter.TableAdapter;
