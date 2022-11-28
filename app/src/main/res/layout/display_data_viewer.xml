@@ -13,12 +13,35 @@
             android:layout_height="wrap_content">
             <TableRow>
                 <TextView
+                    android:layout_marginStart="6dp"
                     android:text="LOCATION"
                     android:textStyle="bold"
                     android:gravity="center"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
                     android:layout_weight="0.5"
+
+                    android:layout_width="26dp"
+                    />
+                <TextView
+                    android:text="START TIME"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="0.5"
+                    android:layout_width="35dp"
+
+                    />
+                <TextView
+                    android:text="END TIME"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:layout_weight="0.5"
+
+                    android:layout_width="20dp"
 
                     />
                 <TextView
@@ -30,25 +53,9 @@
                     android:layout_weight="0.5"
 
                     />
-<!--                <TextView-->
-<!--                    android:text="START TIME"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:gravity="center"-->
-<!--                    android:paddingTop="5dp"-->
-<!--                    android:paddingBottom="5dp"-->
-<!--                    android:layout_weight="0.5"-->
 
-<!--                    />-->
 
-<!--                <TextView-->
-<!--                    android:text="END TIME"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:gravity="center"-->
-<!--                    android:paddingTop="5dp"-->
-<!--                    android:paddingBottom="5dp"-->
-<!--                    android:layout_weight="0.5"-->
 
-<!--                    />-->
 
                 <TextView
                     android:text="IN TOTAL"

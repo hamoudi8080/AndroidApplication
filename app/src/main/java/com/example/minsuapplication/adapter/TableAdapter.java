@@ -27,13 +27,11 @@ import java.util.TimeZone;
 public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> {
 
 
-
-
     private List<Shift> shiftsDisplayData;
     OnListItemClickListener listener;
 
 
-    public TableAdapter( List<Shift> shiftsDisplayData,  OnListItemClickListener listener) {
+    public TableAdapter(List<Shift> shiftsDisplayData, OnListItemClickListener listener) {
         this.shiftsDisplayData = shiftsDisplayData;
         this.listener = listener;
     }
@@ -51,39 +49,20 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
 
-
         Shift loca = shiftsDisplayData.get(position);
         String getmyLocation = loca.getMyLocation();
         holder.loc.setText(getmyLocation);
 
-//        Shift dat = shiftsDisplayData.get(position);
-//        String getmydata = String.valueOf(dat.getDate());
-//        holder.date_.setText(getmydata);
-
 
         Shift dat = shiftsDisplayData.get(position);
-        Date getmydata =  dat.getDate();
+        Date getmydata = dat.getDate();
 
         String string = String.valueOf(getmydata);
         String[] parts = string.split("00:");
-        String part  = parts[0];
+        String part = parts[0];
 
 
-//        Calendar calendar = Calendar.getInstance();
-//        calendar.setTime(getmydata);
-//        String year  = String.valueOf(calendar.YEAR);
-//        String month = String.valueOf(calendar.MONTH);
-//        String day   = String.valueOf(calendar.DATE);
-
-
-
-//        String YEAR =  String.valueOf(year);
-//        String MONTH =  String.valueOf(month);
-//        String DAY =  String.valueOf(day);
-        holder.date_.setText(part );
-//        holder.date_.setText(year +"/"+ month+"/" + day);
-
-
+        holder.date_.setText(part);
 
 
         Shift tota = shiftsDisplayData.get(position);
@@ -91,8 +70,15 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
         holder.tot_.setText(gettota);
 
 
+        Shift s_time = shiftsDisplayData.get(position);
+        String getstarttime = String.valueOf(s_time.getStartTime());
+        holder.sTime.setText(getstarttime);
 
 
+
+        Shift e_time = shiftsDisplayData.get(position);
+        String getendtime = String.valueOf(e_time.getEndTime());
+        holder.eTime.setText(getendtime);
 
 //        holder.loc.setText(shiftsDisplayData.get(position).getMyLocation());
 //
@@ -112,12 +98,16 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
         TextView date_;
         TextView tot_;
 
+        TextView sTime;
+        TextView eTime;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             loc = itemView.findViewById(R.id.location_data);
             date_ = itemView.findViewById(R.id.date_data);
             tot_ = itemView.findViewById(R.id.total_);
 
+            sTime = itemView.findViewById(R.id.start_time);
+            eTime = itemView.findViewById(R.id.end_time);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -130,7 +120,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
         }
     }
 
-    public interface OnListItemClickListener{
+    public interface OnListItemClickListener {
         void onClick(int position);
     }
 }

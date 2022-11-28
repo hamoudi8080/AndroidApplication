@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="60dp"
+    android:padding="10dp">
     <TableRow>
         <TextView
             android:id="@+id/location_data"
-            android:layout_width="30dp"
+            android:layout_width="26dp"
             android:text="ARUHS"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_weight="0.5"
+            android:background="@color/yellow"
+            android:textColor="@color/black"
+
+
+            />
+        <TextView
+        android:id="@+id/start_time"
+        android:layout_width="35dp"
+        android:text="START TIME"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:layout_weight="0.5"
+        android:background="@color/yellow"
+        android:textColor="@color/black"
+
+        />
+        <TextView
+            android:id="@+id/end_time"
+            android:layout_width="20dp"
+            android:text="END TIME"
             android:textStyle="bold"
             android:gravity="center"
             android:paddingTop="10dp"
@@ -26,7 +54,7 @@
             android:layout_weight="0.5"
             android:textColor="@color/black"
             android:background="@color/yellow"
-            android:layout_width="70dp"
+            android:layout_width="50dp"
             />
 
         <TextView

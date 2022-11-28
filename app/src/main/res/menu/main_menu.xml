@@ -5,12 +5,12 @@
 
 
 <!--        />-->
-    <item android:title="Home"
-        android:icon="@drawable/ic_baseline_home_24"
-        android:id="@+id/home"
+    <item android:title="All"
+        android:icon="@drawable/ic_baseline_dashboard_24"
+
         />
-    <item android:title="About"
-        android:icon="@drawable/ic_baseline_help_24"
-        android:id="@+id/about"
+    <item android:title="Time"
+        android:icon="@drawable/ic_baseline_calendar_today_24"
+
         />
 </menu>

@@ -36,6 +36,8 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_note_main_page);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("CREATE A NOTE");
         btnNewNote = findViewById(R.id.btnNewNote);
 //        deleteITM = findViewById(R.id.deleteItemBtn);
         noteViewModel = new ViewModelProvider(this).get(NoteViewModel.class);
@@ -49,11 +51,12 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
             @Override
             public void onChanged(List<Note> notes) {
 
-                if (notes.size() > 0) {
+//                if (notes.size() > 0) {
                     noteList = notes;
                     notesAdapter.setData(notes);
+                    notesAdapter.notifyDataSetChanged();
                     recyclerView.setAdapter(notesAdapter);
-                }
+//                }
             }
         });
         btnNewNote.setOnClickListener(new View.OnClickListener() {
@@ -86,17 +89,6 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
                 Intent intent = new Intent(NoteMainActivity.this, NoteMainActivity.class);
                 startActivity(intent);
                 finish();
-//                View parentLayout = findViewById(android.R.id.content);
-//                Snackbar.make(parentLayout, "YOU HAVE ADDED A NOTE", Snackbar.LENGTH_LONG)
-//                        .setAction("SAVED", new View.OnClickListener() {
-//                            @Override
-//                            public void onClick(View view) {
-//
-//
-//                            }
-//                        })
-//                        .setActionTextColor(getResources().getColor(android.R.color.holo_red_light ))
-//                        .show();
 
 
             }
@@ -106,24 +98,7 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
         alertDialog.show();
     }
 
-    //    public void click() {
-//        deleteITM.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//            class ME implements NotesAdapter.OnListItemClickListener{
-//            ME m = new ME();
-//                @Override
-//                public void onClick(int position) {
-//                    Toast.makeText(NoteMainActivity.this , "Position" + position, Toast.LENGTH_SHORT).show();
-//
-//                }
-//            }
-//
-//            }
-//        });
-//
-//    }
+
     @Override
     public void onClick(int position) {
 
@@ -136,7 +111,6 @@ public class NoteMainActivity extends AppCompatActivity implements NotesAdapter.
 
             public void onClick(DialogInterface dialog, int which) {
                 // continue with delete
-//                noteList.
 
 
                 int id = noteList.get(position).getId();

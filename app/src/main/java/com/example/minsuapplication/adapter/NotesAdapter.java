@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,19 +62,25 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
     class NotesAdapterVH extends RecyclerView.ViewHolder{
 
         TextView notes;
+        ImageView deleteButton;
 
     
         NotesAdapterVH(@NonNull View itemView ) {
             super(itemView);
 
             notes = itemView.findViewById(R.id.notes_row);
+            deleteButton = itemView.findViewById(R.id.item_delete);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
+//            itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                    listener.onClick(getAdapterPosition());
+//                }
+//            });
 
-                    listener.onClick(getAdapterPosition());
-                }
+            deleteButton.setOnClickListener(view -> {
+                listener.onClick(getAdapterPosition());
             });
 
 

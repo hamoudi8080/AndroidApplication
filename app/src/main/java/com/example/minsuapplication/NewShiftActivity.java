@@ -72,7 +72,7 @@ public class NewShiftActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.new_shift);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("SU CALCULATION APP");
+        getSupportActionBar().setTitle("CREATE A SHIFT");
         shiftViewModel = new ViewModelProvider(this).get(ShiftViewModel.class);
         totalTimeTextView = findViewById(R.id.total_timeEditText);
         totalTimeTextView.setText(shiftViewModel.getTotalTime().toString());
@@ -105,18 +105,7 @@ public class NewShiftActivity extends AppCompatActivity {
             }
         });
 
-//        recyclerView = findViewById(R.id.table_recycleView);
-//        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-//        recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
-//        shiftViewModel.getDataForTABLE().observe(this, new Observer<List<Shift>>() {
-//            @Override
-//            public void onChanged(List<Shift> myShifts) {
-//                if (myShifts.size() > 0){
-//                    tableAdapter.setData(myShifts);
-//                    recyclerView.setAdapter(tableAdapter);
-//                }
-//            }
-//        });
+
 
         intitDatePicker();
         dateButton = findViewById(R.id.set_date);

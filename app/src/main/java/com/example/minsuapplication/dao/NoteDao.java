@@ -15,7 +15,6 @@ import java.util.List;
 public interface NoteDao {
 
 
-
     @Insert
     void insert(Note note);
 
@@ -23,13 +22,8 @@ public interface NoteDao {
     LiveData<List<Note>> getNote();
 
 
-//    @Query("DELETE description FROM Notes_table WHERE id = :itemId")
-//    @Delete
-//    void deleteByItemId(int itemId);
-
     @Query("DELETE  FROM Notes_table WHERE id = :id")
     void deleteByItemId(int id);
 
-//    @Query("Select * FROM Notes_table")
-//    String getTotalTime();
+
 }
