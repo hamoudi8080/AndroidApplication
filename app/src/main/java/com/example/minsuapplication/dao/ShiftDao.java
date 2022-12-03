@@ -20,8 +20,6 @@ public interface ShiftDao {
     @Delete
     void delete(Shift shift);
 
-//    @Query("Select * FROM shift_table")
-//    LiveData<List<Shift>> getNote();
 
     @Query("Select * FROM shift_table")
     LiveData<List<Shift>> getDataForTABLE();

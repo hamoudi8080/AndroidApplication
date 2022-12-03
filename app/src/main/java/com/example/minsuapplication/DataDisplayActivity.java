@@ -21,11 +21,12 @@ import com.example.minsuapplication.viewmodel.ShiftViewModel;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DataDisplayActivity extends AppCompatActivity implements TableAdapter.OnListItemClickListener{
+public class DataDisplayActivity extends AppCompatActivity implements TableAdapter.OnListItemClickListener {
     RecyclerView recyclerView;
     TableAdapter shiftAdapter;
     ShiftViewModel shiftViewModel;
     private List<Shift> shiftList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,17 +45,15 @@ public class DataDisplayActivity extends AppCompatActivity implements TableAdapt
         shiftViewModel.getDataForTABLE().observe(this, new Observer<List<Shift>>() {
             @Override
             public void onChanged(List<Shift> myShifts) {
-                if (myShifts.size() > 0){
 
-                    shiftList = myShifts;
-                    shiftAdapter = new TableAdapter(myShifts, DataDisplayActivity.this);
-                    recyclerView.setAdapter(shiftAdapter);
-                }
+
+                shiftList = myShifts;
+
+                shiftAdapter = new TableAdapter(myShifts, DataDisplayActivity.this);
+                recyclerView.setAdapter(shiftAdapter);
+
             }
         });
-
-
-
 
 
     }

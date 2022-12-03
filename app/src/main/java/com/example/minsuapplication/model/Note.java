@@ -11,7 +11,6 @@ public class Note {
     private int id;
 
 
-
     @ColumnInfo(name = "description")
     private String description;
 
@@ -22,7 +21,8 @@ public class Note {
     public Note(String description) {
         this.description = description;
     }
-    public Note( ) {
+
+    public Note() {
 
     }
 
@@ -46,6 +46,7 @@ public class Note {
     public long getCreatedTime() {
         return createdTime;
     }
+
     @Ignore
     public void setCreatedTime(long createdTime) {
         this.createdTime = createdTime;

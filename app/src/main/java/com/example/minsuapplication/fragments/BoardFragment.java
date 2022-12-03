@@ -26,8 +26,7 @@ import com.example.minsuapplication.viewmodel.ShiftViewModel;
 
 import java.util.List;
 
-public class BoardFragment extends Fragment implements TableAdapter.OnListItemClickListener{
-
+public class BoardFragment extends Fragment implements TableAdapter.OnListItemClickListener {
 
 
     RecyclerView recyclerView;
@@ -50,12 +49,12 @@ public class BoardFragment extends Fragment implements TableAdapter.OnListItemCl
         shiftViewModel.getDataForTABLE().observe(getActivity(), new Observer<List<Shift>>() {
             @Override
             public void onChanged(List<Shift> myShifts) {
-                if (myShifts.size() > 0){
 
-                    shiftList = myShifts;
-                    shiftAdapter = new TableAdapter(myShifts, BoardFragment.this);
-                    recyclerView.setAdapter(shiftAdapter);
-                }
+
+                shiftList = myShifts;
+                shiftAdapter = new TableAdapter(myShifts, BoardFragment.this);
+                recyclerView.setAdapter(shiftAdapter);
+
             }
         });
 

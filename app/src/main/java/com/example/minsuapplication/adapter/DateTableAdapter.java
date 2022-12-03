@@ -20,7 +20,9 @@ public class DateTableAdapter extends RecyclerView.Adapter<DateTableAdapter.View
 
 
     public DateTableAdapter(List<Shift> shiftsDisplayData,  OnListItemClickListener listener) {
+        notifyDataSetChanged();
         this.shiftsDisplayData = shiftsDisplayData;
+
         this.listener = listener;
     }
 

@@ -47,12 +47,12 @@ public class OnlyDateFragment extends Fragment implements DateTableAdapter.OnLis
         shiftViewModel.getDataForTABLE().observe(getActivity(), new Observer<List<Shift>>() {
             @Override
             public void onChanged(List<Shift> myShifts) {
-                if (myShifts.size() > 0){
+
 
                     shiftList = myShifts;
                     shiftAdapter = new DateTableAdapter(myShifts,  OnlyDateFragment.this);
                     recyclerView.setAdapter(shiftAdapter);
-                }
+
             }
         });
 

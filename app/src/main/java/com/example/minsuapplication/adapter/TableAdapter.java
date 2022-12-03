@@ -33,6 +33,7 @@ public class TableAdapter extends RecyclerView.Adapter<TableAdapter.ViewHolder> 
 
     public TableAdapter(List<Shift> shiftsDisplayData, OnListItemClickListener listener) {
         this.shiftsDisplayData = shiftsDisplayData;
+        notifyDataSetChanged();
         this.listener = listener;
     }
 

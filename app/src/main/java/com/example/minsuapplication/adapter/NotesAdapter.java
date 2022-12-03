@@ -23,13 +23,14 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
     private List<Note> noteList;
 
     private Context context;
-    TextView textView ;
+    TextView textView;
     OnListItemClickListener listener;
-    public NotesAdapter(OnListItemClickListener listener){
+
+    public NotesAdapter(OnListItemClickListener listener) {
         this.listener = listener;
     }
 
-    public void setData(List<Note> noteList ){
+    public void setData(List<Note> noteList) {
         this.noteList = noteList;
         notifyDataSetChanged();
 
@@ -39,8 +40,8 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
     @NonNull
     @Override
     public NotesAdapterVH onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-    context = parent.getContext();
-    return new NotesAdapter.NotesAdapterVH( LayoutInflater.from(context).inflate(R.layout.row_notes,null));
+        context = parent.getContext();
+        return new NotesAdapter.NotesAdapterVH(LayoutInflater.from(context).inflate(R.layout.row_notes, null));
     }
 
     @Override
@@ -51,7 +52,6 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
         holder.notes.setText(mynotes);
 
 
-
     }
 
     @Override
@@ -59,13 +59,13 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
         return noteList.size();
     }
 
-    class NotesAdapterVH extends RecyclerView.ViewHolder{
+    class NotesAdapterVH extends RecyclerView.ViewHolder {
 
         TextView notes;
         ImageView deleteButton;
 
-    
-        NotesAdapterVH(@NonNull View itemView ) {
+
+        NotesAdapterVH(@NonNull View itemView) {
             super(itemView);
 
             notes = itemView.findViewById(R.id.notes_row);
@@ -84,10 +84,10 @@ public class NotesAdapter extends RecyclerView.Adapter<NotesAdapter.NotesAdapter
             });
 
 
-
         }
     }
-    public interface OnListItemClickListener{
+
+    public interface OnListItemClickListener {
         void onClick(int position);
     }
 
