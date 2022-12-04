@@ -1,6 +1,7 @@
 # AndroidApplication
 
 AND1 project 4th semester Brief description of the application and the motivation behind it:
+
 The application is created and designed to make it easy for employees who want to keep track of their shifts,
 and make some notes if they want to remember their notes later.
 
