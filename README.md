@@ -11,7 +11,7 @@ The app is aiming to help these employees of a company which is called Raitan. R
 
 
 
-#Prioritized requirements for the app (user stories)
+# Prioritized requirements for the app (user stories)
 
 
 
