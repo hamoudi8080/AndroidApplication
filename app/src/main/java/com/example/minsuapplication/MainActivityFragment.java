@@ -1,6 +1,7 @@
 package com.example.minsuapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
@@ -12,24 +13,30 @@ import com.example.minsuapplication.fragments.OnlyDateFragment;
 
 public class MainActivityFragment extends AppCompatActivity {
 
+
+    private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_fragment);
 
+        setContentView(R.layout.activity_main_fragment);
+//        toolbar = findViewById(R.id.mytoolbar);
+//        getSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("VIEW SHIFTS");
         Button borad = findViewById(R.id.board_btn);
         borad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView, BoardFragment.class,null)
+                        .replace(R.id.fragmentContainerView, BoardFragment.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
             }
         });
-
 
 
         Button onlyDatebtn = findViewById(R.id.onlyDate_btn);
@@ -38,7 +45,7 @@ public class MainActivityFragment extends AppCompatActivity {
             public void onClick(View view) {
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
-                        .replace(R.id.fragmentContainerView, OnlyDateFragment.class,null)
+                        .replace(R.id.fragmentContainerView, OnlyDateFragment.class, null)
                         .setReorderingAllowed(true)
                         .addToBackStack("name")
                         .commit();
@@ -47,4 +54,10 @@ public class MainActivityFragment extends AppCompatActivity {
 
 
     }
+
+//    private void getSupportActionBar(Toolbar toolbar) {
+//
+//        toolbar.setTitle("ViewShifts");
+//
+//    }
 }

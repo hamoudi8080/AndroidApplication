@@ -17,7 +17,8 @@
             android:name=".MainActivityFragment"
             android:exported="false"
             android:label="@string/title_activity_main_fragment"
-            android:theme="@style/Theme.SUCalculationApplication.NoActionBar" />
+
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".DataDisplayActivity"
             android:exported="false"

@@ -7,6 +7,14 @@
     android:orientation="vertical"
     tools:context=".MainActivityFragment">
 
+
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/myblue"-->
+<!--        android:id="@+id/mytoolbar"-->
+<!--        app:titleTextColor="@color/white"-->
+<!--        />-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
