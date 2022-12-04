@@ -24,7 +24,7 @@ The app is aiming to help these employees of a company which is called Raitan. R
 4.	As a user, I want to be able to see how many hours I will work when I create a shift and add start time and end time, so that later when I will have an overview I know how much I worked.
 5.	As a user, I want to be able to delete a shift, so that I no longer have interest in that shift.
  
-6.	As a user, When I am having an overview of all my shifts, I want to be able to edit a shift, so that if I already made some mistake in the shift
+6.	As a user, When I am having an overview of all my shifts, I want to be able to edit a shift, so that if I already made some mistake in the shift, it can be edited
  	
 7.	As a user, I want to be able to add note, so that later I remember if I have something to do.
 
