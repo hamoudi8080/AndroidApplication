@@ -11,7 +11,7 @@ The app is aiming to help these employees of a company which is called Raitan. R
 
 
 
-# Prioritized requirements for the app (user stories)
+# Prioritized requirements (user stories)
 
 
 
@@ -22,17 +22,20 @@ The app is aiming to help these employees of a company which is called Raitan. R
 3.	As a user, I want to have an overview of my shifts, the date and the time and even the location, so that I know which date, location I worked at.
 
 4.	As a user, I want to be able to see how many hours I will work when I create a shift and add start time and end time, so that later when I will have an overview I know how much I worked.
+5.	As a user, I want to be able to delete a shift, so that I no longer have interest in that shift.
+ 
+6.	As a user, When I am having an overview of all my shifts, I want to be able to edit a shift, so that if I already made some mistake in the shift
+ 	
+7.	As a user, I want to be able to add note, so that later I remember if I have something to do.
 
-5.	As a user, I want to be able to add note, so that later I remember if I have something to do.
+8.	As a user, I want to be able to delete a note, so that I am no longer interested in that note
 
-6.	As a user, I want to be able to delete a note, so that I am no longer interested in that note
+9.	As a user, I want to be able to see all my notes, so that I have an overview on my notes.
 
-7.	As a user, I want to be able to see all my notes, so that I have an overview on my notes.
-
-8.	As a user, I want all my data automatically be saved locally on my device so that I don’t lose information.
+10.	As a user, I want all my data automatically be saved locally on my device so that I don’t lose information.
 
 
 
-Youtube: https://www.youtube.com/watch?v=6fko32Tkv3g
+## Youtube: https://www.youtube.com/watch?v=6fko32Tkv3g
 
 
