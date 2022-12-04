@@ -30,3 +30,9 @@ Prioritized requirements for the app (user stories)
 7.	As a user, I want to be added to see all my notes, so that I have an overview on my notes.
 
 8.	As a user, I want all my data automatically be saved locally on my device so that I don’t lose information.
+
+
+
+Youtube: https://www.youtube.com/watch?v=6fko32Tkv3g
+
+
